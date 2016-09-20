@@ -13,7 +13,7 @@ function Board() {
   [0,0,0,0,0,0,0,0,0,0]
 ]}
 
-Board.prototype.place_ship = function(a,b,c,d,ship){
+Board.prototype.placeShip = function(a,b,c,d,ship){
   if(b == d){
     this.board[b].splice.apply(this.board[b], [a, ship.length].concat(ship));
   } else {
