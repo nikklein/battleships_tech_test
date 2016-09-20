@@ -15,13 +15,40 @@ function Board() {
 
 Board.prototype.placeShip = function(a,b,c,d,ship){
   if(b == d){
+    if(this.isThereShip(a,b,c,d)){
+      throw new Error("Can't place a ship");
+    } else {
     this.board[b].splice.apply(this.board[b], [a, ship.length].concat(ship));
+}
   } else {
       for(var i = b; i < d;i++){
         this.board[i].splice(a, 1, ship[0]);
     }
   }
 }
+
+
+Board.prototype.isThereShip = function(a,b,c,d) {
+  if(b == d) {
+    for(var i = a; i < c;i++){
+
+      if(this.board[b][i] !== 0) {
+        return false;
+      }else{
+        return true;
+      }
+    }} else {
+        if(this.board[i][a] !== 0) {
+          return false;
+        }else {
+            return true;
+          }
+        }
+      }
+
+
+
+
 var ship1 = [1,1];
 var ship2 = [2,2,2];
 var ship3 = [3,3,3,3];
